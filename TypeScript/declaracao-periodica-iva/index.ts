@@ -1,0 +1,17 @@
+export { SubmeterDeclaracaoPeriodicaIvaRequest } from "./definitions/SubmeterDeclaracaoPeriodicaIvaRequest";
+export { SubmeterDeclaracaoPeriodicaIvaResponse } from "./definitions/SubmeterDeclaracaoPeriodicaIvaResponse";
+export { DadosSubmissao } from "./definitions/DadosSubmissao";
+export { Contribuinte } from "./definitions/Contribuinte";
+export { Alertas } from "./definitions/Alertas";
+export { Alerta } from "./definitions/Alerta";
+export { Erros } from "./definitions/Erros";
+export { ValidarDeclaracaoPeriodicaIvaRequest } from "./definitions/ValidarDeclaracaoPeriodicaIvaRequest";
+export { ValidarDeclaracaoPeriodicaIvaResponse } from "./definitions/ValidarDeclaracaoPeriodicaIvaResponse";
+export { ObterComprovativoIvaRequest } from "./definitions/ObterComprovativoIvaRequest";
+export { ObterComprovativoIvaResponse } from "./definitions/ObterComprovativoIvaResponse";
+export { PagamentoIvaRequest } from "./definitions/PagamentoIvaRequest";
+export { PagamentoIvaResponse } from "./definitions/PagamentoIvaResponse";
+export { DadosPagamento } from "./definitions/DadosPagamento";
+export { createClientAsync, DeclaracaoPeriodicaIvaWebServiceClient } from "./client";
+export { DeclaracaoPeriodicaIvaWebService } from "./services/DeclaracaoPeriodicaIvaWebService";
+export { DeclaracaoPeriodicaIvaWebServicePort } from "./ports/DeclaracaoPeriodicaIvaWebServicePort";

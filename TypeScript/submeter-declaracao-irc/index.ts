@@ -1,0 +1,13 @@
+export { SubmeterDeclaracaoIrcRequest } from "./definitions/SubmeterDeclaracaoIrcRequest";
+export { SubmeterDeclaracaoIrcResponse } from "./definitions/SubmeterDeclaracaoIrcResponse";
+export { DadosSubmissao } from "./definitions/DadosSubmissao";
+export { Contribuinte } from "./definitions/Contribuinte";
+export { DadosPagamento } from "./definitions/DadosPagamento";
+export { Alertas } from "./definitions/Alertas";
+export { Alerta } from "./definitions/Alerta";
+export { Erros } from "./definitions/Erros";
+export { ValidarDeclaracaoIrcRequest } from "./definitions/ValidarDeclaracaoIrcRequest";
+export { ValidarDeclaracaoIrcResponse } from "./definitions/ValidarDeclaracaoIrcResponse";
+export { createClientAsync, WsSubmeterDeclaracaoIrcClient } from "./client";
+export { SubmeterDeclaracaoIrcService } from "./services/SubmeterDeclaracaoIrcService";
+export { SubmeterDeclaracaoIrcPort } from "./ports/SubmeterDeclaracaoIrcPort";

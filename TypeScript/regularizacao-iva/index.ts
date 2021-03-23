@@ -1,0 +1,16 @@
+export { TnssubmeterPedidoCobrancaDuvidosaRequestType } from "./definitions/TnssubmeterPedidoCobrancaDuvidosaRequestType";
+export { DadosPedido } from "./definitions/DadosPedido";
+export { Faturas } from "./definitions/Faturas";
+export { Fatura } from "./definitions/Fatura";
+export { Periodo } from "./definitions/Periodo";
+export { TnssubmeterPedidoCobrancaDuvidosaResponseType } from "./definitions/TnssubmeterPedidoCobrancaDuvidosaResponseType";
+export { ResultadoProcessamento } from "./definitions/ResultadoProcessamento";
+export { TnspesquisarPedidoCobrancaDuvidosaRequestType } from "./definitions/TnspesquisarPedidoCobrancaDuvidosaRequestType";
+export { TnspesquisarPedidoCobrancaDuvidosaResponseType } from "./definitions/TnspesquisarPedidoCobrancaDuvidosaResponseType";
+export { InformacaoPedido } from "./definitions/InformacaoPedido";
+export { Pedido } from "./definitions/Pedido";
+export { DetalhePedido } from "./definitions/DetalhePedido";
+export { ResultadoProcessamento1 } from "./definitions/ResultadoProcessamento1";
+export { createClientAsync, CredincwsClient } from "./client";
+export { PedidoCobrancaDuvidosaService } from "./services/PedidoCobrancaDuvidosaService";
+export { PedidoCobrancaDuvidosaPortType } from "./ports/PedidoCobrancaDuvidosaPortType";

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	name="PedidoCobrancaDuvidosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/">
+
+	<!-- Types -->
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/"
+			xmlns:tns="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/">
+
+			<xs:element name="SubmeterPedidoCobrancaDuvidosaRequestElem"
+				type="tns:SubmeterPedidoCobrancaDuvidosaRequestType">
+			</xs:element>
+			<xs:element name="SubmeterPedidoCobrancaDuvidosaResponseElem"
+				type="tns:SubmeterPedidoCobrancaDuvidosaResponseType">
+			</xs:element>
+			
+			
+			<xs:element name="PesquisarPedidoCobrancaDuvidosaRequestElem"
+				type="tns:PesquisarPedidoCobrancaDuvidosaRequestType">
+			</xs:element>
+			<xs:element name="PesquisarPedidoCobrancaDuvidosaResponseElem"
+				type="tns:PesquisarPedidoCobrancaDuvidosaResponseType">
+			</xs:element>
+			
+
+			<xs:complexType name="SubmeterPedidoCobrancaDuvidosaRequestType">
+				<xs:sequence>
+					<xs:element name="DadosPedido" type="tns:DadosPedidoType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="Faturas" type="tns:FaturasType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="SubmeterPedidoCobrancaDuvidosaResponseType">
+				<xs:sequence>
+					<xs:element name="NumPedido" type="xs:integer" minOccurs="0"
+						maxOccurs="1" />
+					<xs:element name="ResultadoProcessamento" type="tns:EstadoExecucaoType" />
+				</xs:sequence>
+			</xs:complexType>
+			
+		    <xs:complexType name="PesquisarPedidoCobrancaDuvidosaRequestType">
+				<xs:sequence>
+					<xs:element name="NumeroPedido" type="xs:integer"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="PesquisarPedidoCobrancaDuvidosaResponseType">
+				<xs:sequence>
+					<xs:element name="InformacaoPedido" type="tns:PedidoType" minOccurs="0"
+						maxOccurs="1" />
+					<xs:element name="ResultadoProcessamento" type="tns:EstadoExecucaoPesquisaType" />				
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="DadosPedidoType">
+				<xs:sequence>
+					<xs:element name="NumeroFiscalAdquirente" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroFiscalEmitenteFat" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroFiscalROC" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="PedidoType">
+				<xs:sequence>
+					<xs:element name="Pedido" type="tns:Pedido"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="DetalhePedido" type="tns:DetalhePedidoType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="Faturas" type="tns:FaturasType"
+						minOccurs="1" maxOccurs="1"/>				
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Pedido">
+				<xs:sequence>
+					<xs:element name="NumeroFiscalCredor" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroPedido" type="xs:integer"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="DataSubmissao" type="tns:DateType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroFiscalROC" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroFiscalDevedor" type="tns:NumeroFiscalType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="EstadoPedido" type="xs:string"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="DataEstado" type="tns:DateType"
+						minOccurs="1" maxOccurs="1" nillable="false" />				
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="DetalhePedidoType">
+				<xs:sequence>
+					<xs:element name="DataCertificacaoROC" type="tns:DateType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="DataAceitacaoAT" type="tns:DateType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="DataNotificacaoCredor" type="tns:DateType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="ReferenciaNotificacaoCredor" type="xs:string"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="DataLimiteUtilizacao" type="tns:DateType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="ValorTotalPedido" type="xs:decimal"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="ValorIVADeferido" type="xs:decimal"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="ValorIVAIndeferido" type="xs:decimal"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="NumeroDPAnexo40" type="xs:integer"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="PeriodoDPAnexo40" type="tns:PeriodoType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+			
+
+			<xs:complexType name="FaturasType">
+				<xs:sequence>
+					<xs:element name="Fatura" type="tns:FaturaType"
+						minOccurs="1" maxOccurs="unbounded" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="FaturaType">
+				<xs:sequence>
+					<xs:element name="NumeroFatura" type="tns:NumeroFaturaType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="DataEmissaoFatura" type="tns:DateType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="DataVencimentoCredito" type="tns:DateType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="Periodo" type="tns:PeriodoType"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+					<xs:element name="BaseTributavel" type="xs:decimal"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="ImpostoFat" type="xs:decimal"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+					<xs:element name="IVARegularizar" type="xs:decimal"
+						minOccurs="0" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="PeriodoType">
+				<xs:sequence>
+					<xs:element name="Ano" type="xs:integer" minOccurs="1"
+						maxOccurs="1" nillable="false" />
+					<xs:element name="Mes" type="xs:integer" minOccurs="1"
+						maxOccurs="1" nillable="false" />
+					<xs:element name="TipoEnquadramento" type="tns:TipoEnquadramentoType"
+						minOccurs="1" maxOccurs="1" nillable="false" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<!-- C�digo �nico do documento -->
+			<xs:simpleType name="NumeroFaturaType">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="60" />
+				</xs:restriction>
+			</xs:simpleType>
+
+			<xs:simpleType name="TipoEnquadramentoType">
+				<xs:restriction base="xs:string">
+					<!-- Mensal -->
+					<xs:enumeration value="M" />
+					<!-- Trimestral -->
+					<xs:enumeration value="T" />
+				</xs:restriction>
+			</xs:simpleType>
+
+			<xs:simpleType name="DateType">
+				<xs:restriction base="xs:date" />
+			</xs:simpleType>
+
+			<xs:simpleType name="NumeroFiscalType">
+				<xs:restriction base="xs:integer" />
+			</xs:simpleType>
+
+			<xs:complexType name="EstadoExecucaoType">
+				<xs:sequence>
+					<xs:element name="CodigoEstado">
+						<xs:annotation>
+							<xs:documentation>Codigo indicado do estado da execucao.
+								Valores possiveis na gama reservada para códigos genéricos:
+								0 - Sucesso: Pedido submetido com sucesso;
+								1 – Preenchimento do header (nif do credor) inválido;
+								2 – Mensagens de validação de parâmetros de entrada;
+								3 – O sub-utilizador não tem perfil para realizar pedidos de regularização de IVA por Web Service;
+								99 – Erro de sistema. Por favor volte a tentar mais tarde.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:int">
+								<xs:minInclusive value="000" />
+								<xs:maxInclusive value="999" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="DescricaoEstado" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Descricao do estado da execucao.
+								A utilização desta estrutura prevê que, nas situações de erro,
+								seja indicado detalhadamente qual o motivo do erro no campo
+								DescricaoEstado. Por exemplo, no caso de do erro '001 - Erro:
+								Validação de parâmetros de entrada' a descrição do erro deve
+								indicar qual o nome do campo que falhou na validação.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="EstadoExecucaoPesquisaType">
+				<xs:sequence>
+					<xs:element name="CodigoEstado">
+						<xs:annotation>
+							<xs:documentation>Código indicado do estado da execucao.
+								Valores possiveis na gama reservada para códigos genéricos:
+								0 - Sucesso: Pesquisa efetuada com sucesso;
+								1 – O número de pedido introduzido é inválido;
+								99 – Erro de sistema. Por favor volte a tentar mais tarde.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:int">
+								<xs:minInclusive value="000" />
+								<xs:maxInclusive value="999" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="DescricaoEstado" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Descrição do estado da execução.
+								A utilização desta estrutura prevê que, nas situações de erro,
+								seja indicado detalhadamente qual o motivo do erro no campo
+								DescricaoEstado. Por exemplo, no caso do erro '001 - Erro:
+								O número de pedido introduzido é inválido' a descrição do erro deve
+								indicar qual o nome do campo que falhou na validação.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- /Types -->
+
+	<!-- Messages -->
+
+	<wsdl:message name="SubmeterPedidoCobrancaDuvidosaRequest">
+		<wsdl:part element="tns:SubmeterPedidoCobrancaDuvidosaRequestElem"
+			name="SubmeterPedidoCobrancaDuvidosaRequest" />
+	</wsdl:message>
+	<wsdl:message name="SubmeterPedidoCobrancaDuvidosaResponse">
+		<wsdl:part element="tns:SubmeterPedidoCobrancaDuvidosaResponseElem"
+			name="SubmeterPedidoCobrancaDuvidosaResponse" />
+	</wsdl:message>
+	<wsdl:message name="PesquisarPedidoCobrancaDuvidosaRequest">
+		<wsdl:part element="tns:PesquisarPedidoCobrancaDuvidosaRequestElem"
+			name="PesquisarPedidoCobrancaDuvidosaRequest" />
+	</wsdl:message>
+	<wsdl:message name="PesquisarPedidoCobrancaDuvidosaResponse">
+		<wsdl:part element="tns:PesquisarPedidoCobrancaDuvidosaResponseElem"
+			name="PesquisarPedidoCobrancaDuvidosaResponse" />
+	</wsdl:message>
+	<!-- /Messages -->
+
+	<!-- PortTypes -->
+
+	<wsdl:portType name="PedidoCobrancaDuvidosaPortType">
+		<wsdl:operation name="SubmeterPedidoCobrancaDuvidosa">
+			<wsdl:input message="tns:SubmeterPedidoCobrancaDuvidosaRequest" />
+			<wsdl:output message="tns:SubmeterPedidoCobrancaDuvidosaResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="PesquisarPedidoCobrancaDuvidosa">
+			<wsdl:input message="tns:PesquisarPedidoCobrancaDuvidosaRequest" />
+			<wsdl:output message="tns:PesquisarPedidoCobrancaDuvidosaResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- /PortTypes -->
+
+	<!-- Bindings e Service -->
+
+	<wsdl:binding name="PedidoCobrancaDuvidosaSOAPBinding"
+		type="tns:PedidoCobrancaDuvidosaPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="SubmeterPedidoCobrancaDuvidosa">
+			<soap:operation
+				soapAction="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/SubmeterPedidoCobrancaDuvidosa" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="PesquisarPedidoCobrancaDuvidosa">
+			<soap:operation
+				soapAction="http://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/PesquisarPedidoCobrancaDuvidosa" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="PedidoCobrancaDuvidosaService">
+		<wsdl:port binding="tns:PedidoCobrancaDuvidosaSOAPBinding"
+			name="PedidoCobrancaDuvidosaPortType">
+			<soap:address
+				location="https://servicos.portaldasfinancas.gov.pt/PedidoCobrancaDuvidosa/" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

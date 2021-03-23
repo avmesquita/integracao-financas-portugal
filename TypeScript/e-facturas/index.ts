@@ -1,0 +1,11 @@
+export { TnsregisterInvoiceType } from "./definitions/TnsregisterInvoiceType";
+export { InternationalCustomerTaxId } from "./definitions/InternationalCustomerTaxId";
+export { Line } from "./definitions/Line";
+export { OrderReferences } from "./definitions/OrderReferences";
+export { OrderReference } from "./definitions/OrderReference";
+export { Tax } from "./definitions/Tax";
+export { DocumentTotals } from "./definitions/DocumentTotals";
+export { TnsregisterInvoiceResponseType } from "./definitions/TnsregisterInvoiceResponseType";
+export { createClientAsync, FactemiwsClient } from "./client";
+export { Faturas } from "./services/Faturas";
+export { FaturasSoap } from "./ports/FaturasSoap";
